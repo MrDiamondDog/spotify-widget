@@ -1,0 +1,182 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+
+  overflow: hidden;
+
+  margin: 0;
+  padding: 0;
+  /* make window draggable from any position */
+  -webkit-app-region: drag;
+
+  color: white;
+
+  border-radius: 10px;
+  height: 100%;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+.spotify-login {
+  -webkit-app-region: unset !important;
+  background-color: white !important;
+}
+
+.container {
+  background-color: #0b3913;
+  border-radius: 10px;
+  height: 100vh;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+.song-info {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.album-art {
+  border-radius: 10px;
+  height: 100px;
+  width: 100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.song-details {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0;
+  margin-left: 10px;
+}
+
+#song-name {
+  color: white;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.light #song-name {
+  color: #000000;
+}
+
+#artist-name, #album-name {
+  color: #dadada;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.light #artist-name, .light #album-name {
+  color: #212121;
+}
+
+.progress-bar {
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.progress {
+  width: 100%;
+  height: 5px;
+
+  position: relative;
+}
+
+.progress-bar-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #616161;
+  border-radius: 5px;
+}
+
+.light .progress-bar-bg {
+  background-color: white;
+}
+
+.progress-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  z-index: 1;
+  height: 100%;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.light .progress-bar-fill {
+  background-color: black;
+}
+
+.light .time {
+  color: black;
+}
+
+#error, #input {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #480505;
+  z-index: 2;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+#input {
+  background-color: #0b3913;
+}
+
+.error-icon, .input-icon {
+  width: 50px;
+  height: 50px;
+  color: white;
+  margin: 0 20px;
+}
+
+input {
+  width: 150px;
+  height: 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1.2em;
+  background-color: #ffffff;
+  color: black;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #dadada;
+}
