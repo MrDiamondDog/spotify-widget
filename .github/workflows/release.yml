@@ -25,7 +25,7 @@ jobs:
       run: pnpm package
 
     - name: Zip build output
-      run: zip -r spotify-widget.zip out/spotify-widget-win32-x64
+      run: zip -r spotify-widget.zip out/spotify-widget-linux-x64
 
     - name: Create release
       id: create_release
