@@ -31,7 +31,7 @@ A simple widget to display what's currently playing on your Spotify account.
 
 There will be a more formal system for this in the future.
 
-1. Settings are located in %appdata%/spotify-widget/config.json
+1. Settings are located in `%appdata%/spotify-widget/config.json` for windows or `~/.config/spotify-widget/config.json` for linux
 2. There are only two properties: `port` and `spotify_app_id`. Change them as needed.
 
 > [!WARNING]
