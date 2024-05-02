@@ -21,20 +21,17 @@ jobs:
     - name: Install dependencies
       run: pnpm i
 
-    - name: Package Windows
-      run: pnpm package-win
-    
-    - name: Package Linux
-      run: pnpm package-linux
-
-    - name: Package Mac
-      run: pnpm package-mac
-
-    - name: Zip build output
+    - name: Generate packages
       run: |
-        zip -r spotify-widget-linux.zip out/spotify-widget-linux-x64
+        pnpm package-linux
+        pnpm package-mac
+        pnpm package-win
+
+    - name: Compress build output
+      run: |
         zip -r spotify-widget-mac.zip out/spotify-widget-darwin-x64
         zip -r spotify-widget-win32.zip out/spotify-widget-win32-x64
+        tar -czvf spotify-widget-linux.tar.gz out/spotify-widget-linux-x64
 
     - name: Create release
       id: create_release
