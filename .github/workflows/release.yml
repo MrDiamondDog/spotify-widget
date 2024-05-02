@@ -51,9 +51,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: spotify-widget-linux.zip
-        asset_name: spotify-widget-linux.zip
-        asset_content_type: application/zip
+        asset_path: spotify-widget-linux.tar.gz
+        asset_name: spotify-widget-linux.tar.gz
+        asset_content_type: application/gzip
     
     - name: Upload mac release asset
       id: upload-release-asset-mac
