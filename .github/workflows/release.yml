@@ -21,11 +21,20 @@ jobs:
     - name: Install dependencies
       run: pnpm i
 
-    - name: Package
-      run: pnpm package
+    - name: Package Windows
+      run: pnpm package-win
+    
+    - name: Package Linux
+      run: pnpm package-linux
+
+    - name: Package Mac
+      run: pnpm package-mac
 
     - name: Zip build output
-      run: zip -r spotify-widget.zip out/spotify-widget-linux-x64
+      run: |
+        zip -r spotify-widget-linux.zip out/spotify-widget-linux-x64
+        zip -r spotify-widget-mac.zip out/spotify-widget-darwin-x64
+        zip -r spotify-widget-win32.zip out/spotify-widget-win32-x64
 
     - name: Create release
       id: create_release
@@ -38,13 +47,35 @@ jobs:
         draft: false
         prerelease: false
 
-    - name: Upload release asset
-      id: upload-release-asset
+    - name: Upload Linux release asset
+      id: upload-release-asset-linux
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./spotify-widget.zip
-        asset_name: spotify-widget.zip
+        asset_path: spotify-widget-linux.zip
+        asset_name: spotify-widget-linux.zip
+        asset_content_type: application/zip
+    
+    - name: Upload mac release asset
+      id: upload-release-asset-mac
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: spotify-widget-mac.zip
+        asset_name: spotify-widget-mac.zip
+        asset_content_type: application/zip
+
+    - name: Upload windows release asset
+      id: upload-release-asset-win
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: spotify-widget-win32.zip
+        asset_name: spotify-widget-win32.zip
         asset_content_type: application/zip

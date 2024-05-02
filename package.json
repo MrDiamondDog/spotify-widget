@@ -7,6 +7,9 @@
   "scripts": {
     "start": "electron-forge start -- --dev",
     "package": "electron-forge package && ts-node scripts/copy-public.ts",
+    "package-linux": "electron-forge package --platform=linux && ts-node scripts/copy-public.ts --linux",
+    "package-win": "electron-forge package --platform=win32 && ts-node scripts/copy-public.ts --win32",
+    "package-mac": "electron-forge package --platform=darwin && ts-node scripts/copy-public.ts --darwin",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "eslint --ext .ts,.tsx ."
