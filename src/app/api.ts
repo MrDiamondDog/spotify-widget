@@ -21,9 +21,6 @@ export const SpotifyAPI = {
             await SpotifyAPI.authFlow();
         }
 
-        window.electron.setSize(400, 150);
-        document.body.classList.remove("spotify-login");
-
         return await res.json();
     },
 
@@ -50,6 +47,10 @@ export const SpotifyAPI = {
             localStorage.removeItem("spotify_auth_state");
             localStorage.setItem("spotify_auth_token", access_token);
 
+            await window.electron.setSize(400, 150);
+            document.body.classList.remove("spotify-login");
+            console.log("done");
+
             window.location.hash = "";
             return;
         }
@@ -57,7 +58,6 @@ export const SpotifyAPI = {
         let redirect_uri = await window.electron.getURL();
         redirect_uri = redirect_uri.split("#")[0];
         redirect_uri = redirect_uri.split("?")[0];
-        console.log(redirect_uri);
 
         const state = Math.random().toString(36).substring(2);
 
@@ -71,8 +71,8 @@ export const SpotifyAPI = {
         url += "&redirect_uri=" + encodeURIComponent(redirect_uri);
 
         document.body.className = "spotify-login";
-        window.electron.setSize(800, 600);
-        window.electron.loadURL(url);
+        await window.electron.setSize(800, 600);
+        await window.electron.loadURL(url);
     },
 
     async playerState(): Promise<PlaybackInfo> {

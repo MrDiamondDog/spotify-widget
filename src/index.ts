@@ -52,7 +52,9 @@ app.on("ready", () => {
         if (width === -1) width = win.getSize()[0];
         if (height === -1) height = win.getSize()[1];
 
+        win.setResizable(true);
         win.setSize(width, height);
+        win.setResizable(false);
     });
     ipcMain.handle("spotifyId", () => settings.get("spotify_app_id"));
     ipcMain.handle("setSpotifyId", (_, id: string) => settings.set("spotify_app_id", id));
