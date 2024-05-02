@@ -1,9 +1,9 @@
 import fs from "fs";
 
 console.log("> Copying public files...");
-console.log(process.argv[2]);
 
-const platform = process.argv[2].replace("--", "");
+const platform = process.argv[2]?.replace("--", "") || process.platform;
+console.log("> Platform:", platform);
 
 // check device
 if (!fs.existsSync(`./out/spotify-widget-${platform}-x64/public`)) {

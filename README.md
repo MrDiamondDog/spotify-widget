@@ -6,7 +6,7 @@ A simple widget to display what's currently playing on your Spotify account.
 > This code is extremely janky and using polling (once a second) as Spotify doesn't have a (documented) websocket API. If you would like to help improve this, please do so by forking and making a PR.
 
 > [!WARNING]
-> There are linux and mac downloads but I have never tested them, no guarantees they work.
+> There is a mac download but I have never tested it, no guarantees it works.
 
 ## Installation
 
