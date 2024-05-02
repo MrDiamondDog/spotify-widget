@@ -21,6 +21,7 @@
     "@electron-forge/plugin-fuses": "^7.4.0",
     "@electron-forge/plugin-webpack": "^7.4.0",
     "@electron/fuses": "^1.8.0",
+    "@types/node": "^20.12.8",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@vercel/webpack-asset-relocator-loader": "1.7.3",
@@ -43,9 +44,11 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
+    "@electron-forge/shared-types": "^7.4.0",
     "@types/spotify-api": "^0.0.25",
     "electron-json-config": "^2.1.0",
     "electron-squirrel-startup": "^1.0.0",
-    "http": "0.0.1-security"
+    "http": "0.0.1-security",
+    "webpack": "^5.91.0"
   }
 }
