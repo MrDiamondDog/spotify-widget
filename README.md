@@ -2,9 +2,8 @@
 
 A simple widget to display what's currently playing on your Spotify account.
 
-:::warning
-This code is extremely janky as Spotify doesn't have a (documented) websocket API. If you would like to help improve this, please do so by forking and making a PR.
-:::
+> [!WARNING]
+> This code is extremely janky and using polling (once a second) as Spotify doesn't have a (documented) websocket API. If you would like to help improve this, please do so by forking and making a PR.
 
 ## Installation
 
@@ -32,9 +31,8 @@ There will be a more formal system for this in the future.
 1. Settings are located in %appdata%/spotify-widget/config.json
 2. There are only two properties: `port` and `spotify_app_id`. Change them as needed.
 
-::: warning
-If you change the port, you will need to update the redirect URI in your Spotify app settings.
-:::
+> [!WARNING]
+> If you change the port, you will need to update the redirect URI in your Spotify app settings.
 
 ## Manual Install
 
